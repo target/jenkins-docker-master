@@ -1,0 +1,5 @@
+git
+github
+github-oauth
+matrix-auth
+role-strategy
