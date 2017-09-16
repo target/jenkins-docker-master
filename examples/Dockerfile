@@ -8,8 +8,7 @@ RUN curl -L https://github.com/logzio/jmx2graphite/releases/download/v1.1.0/jmx2
 
 USER jenkins
 
-COPY base-plugins.txt /usr/share/jenkins/base-plugins.txt
-RUN cat /usr/share/jenkins/base-plugins.txt | xargs /usr/local/bin/install-plugins.sh
-
-COPY setup_security.groovy /usr/share/jenkins/ref/init.groovy.d/setup.groovy.override
-COPY setup_reporting.groovy /usr/share/jenkins/ref/init.groovy.d/setup_reporting.groovy.override
+RUN curl -L https://github.com/target/jenkins-docker-master/blob/master/examples/files/base-plugins.txt > /usr/share/jenkins/base-plugins.txt && \
+curl -L https://github.com/target/jenkins-docker-master/blob/master/examples/files/setup_security.groovy > /usr/share/jenkins/ref/init.groovy.d/setup.groovy.override && \
+curl -L https://github.com/target/jenkins-docker-master/blob/master/examples/files/setup_reporting.groovy > /usr/share/jenkins/ref/init.groovy.d/setup_reporting.groovy.override && \
+cat /usr/share/jenkins/base-plugins.txt | xargs /usr/local/bin/install-plugins.sh

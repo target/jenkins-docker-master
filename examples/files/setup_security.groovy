@@ -21,11 +21,8 @@ import com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey.
 import com.cloudbees.plugins.credentials.SystemCredentialsProvider
 import com.cloudbees.plugins.credentials.domains.Domain
 
-
 def env = System.getenv()
 def logger = LogManager.getLogManager().getLogger("hudson.WebAppMain")
-
-//logger.addHandler (new ConsoleHandler())
 
 def instance = Jenkins.getInstance()
 
