@@ -54,18 +54,18 @@ An example reporting script can be found [here](https://github.com/target/jenkin
 
 The following environment variables can be used to set up Jenkins:
 
-| Variable                          | Description | Example |
-| --------------------------------- | ----------- | ------- |
-| JENKINS_SLAVE_AGENT_PORT          | Specify the TCP port for the slave agent to use. Must be unique to the cluster | `5001` |
-| JAVA_OPTS                         | Specify any additional java options for running. | `-Djava.util.logging.config.file=/var/jenkins_home/log.properties` |
+| Variable                 | Description | Example |
+| ------------------------ | ----------- | ------- |
+| JENKINS_SLAVE_AGENT_PORT | The TCP port for the slave agent to use. Must be unique to the cluster. | `5001` |
+| JAVA_OPTS | Additional java options for running. | `--server -XX:+UseG1GC` |
 
 # Image Variants
 
 The `jenkins-docker-master` images come in a couple of flavors, each designed for a specific use case. All of the images extend the official [Jenkins LTS images](https://hub.docker.com/r/jenkins/jenkins)
 and as such, many of the options prescribed there apply to this image as well.
 
-## `jenkins-docker-master:<version>`
+## `jenkins-docker-master:<lts version>-<image version>`
 This is the de facto image. It is based of of `jenkins/jenkins<version>` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
 
-## `jenkins-docker-master:debug-<version>`
+## `jenkins-docker-master:debug-<lts version>-<image version>`
 This image is based off of the `jenkins-docker-master:<version>` image. The noticeable difference is in relation to increasing log verbosity for troubleshooting.
