@@ -11,5 +11,6 @@ These rules must be followed for any contributions to be merged into master.
 1. Fork this repo
 1. Make any desired changes
 1. Validate you changes meet your desired use case
+1. Ensure the `JENKINS_VER` and `JENKINS_REL` in `update.sh` are modified accordingly
 1. Ensure documentation has been updated
 1. Open a pull-request
