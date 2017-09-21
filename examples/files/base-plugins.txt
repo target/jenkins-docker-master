@@ -31,7 +31,7 @@ workflow-api
 workflow-aggregator
 workflow-cps
 workflow-multibranch
-workflow-job:2.11
+workflow-job
 workflow-scm-step
 workflow-step-api
 workflow-support

@@ -16,9 +16,9 @@ The `setup_security.groovy` script does the following:
 
 1. Extend the base image and include the script
 
-  ```
+  ```dockerfile
   FROM target/jenkins-docker-master:latest
-
+  
   COPY setup_security.groovy   /usr/share/jenkins/ref/init.groovy.d/setup_security.groovy.override
   ```
 
@@ -51,11 +51,10 @@ The `setup_reporting.groovy` script does the following:
 
 1. Extend the base image by including the reporting script and installing the [jmx2graphite jar](https://github.com/logzio/jmx2graphite)
 
-  ```
+  ```dockerfile
   FROM target/jenkins-docker-master:latest
 
   COPY setup_reporting.groovy   /usr/share/jenkins/ref/init.groovy.d/setup_reporting.groovy.override
-
   RUN curl -L https://github.com/logzio/jmx2graphite/releases/download/v1.1.0/jmx2graphite-1.1.0-javaagent.jar > /usr/share/jenkins/jmx2graphite.jar
   ```
 
@@ -77,7 +76,7 @@ The examples/base-plugins.txt file is a list of our favorite plugins to install
 
 ### Usage
 
-  ```
+  ```dockerfile
   FROM target/jenkins-docker-master:latest
 
   COPY base-plugins.txt /usr/share/jenkins/base-plugins.txt

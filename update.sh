@@ -1,7 +1,5 @@
 #!/bin/bash
 # This is a simple script to update the version of jenkins being used
-#
-# Update the variables below for the current version to build
 
 JENKINS_VER=2.60.3
 JENKINS_REL=1
