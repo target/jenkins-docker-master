@@ -1,7 +1,7 @@
 ## setup_security
 The `setup_security.groovy` script does the following:
 
-  * Set [executors](https://support.cloudbees.com/hc/en-us/articles/216456477-What-is-a-Jenkins-Executor-and-how-can-I-best-utilize-my-executors) to 0
+  * Set master [executors](https://support.cloudbees.com/hc/en-us/articles/216456477-What-is-a-Jenkins-Executor-and-how-can-I-best-utilize-my-executors) to 0
   * Set [quiet period](https://jenkins.io/blog/2010/08/11/quiet-period-feature/) to 5
   * Set [slave agent port](http://javadoc.jenkins-ci.org/jenkins/model/Jenkins.html#setSlaveAgentPort-int-) to a user provided environment variable
   * Set [jenkins url](http://javadoc.jenkins-ci.org/jenkins/model/JenkinsLocationConfiguration.html#setUrl-java.lang.String-) to a user provided environment variable
@@ -19,7 +19,7 @@ The `setup_security.groovy` script does the following:
   ```dockerfile
   FROM target/jenkins-docker-master:latest
 
-  COPY setup_security.groovy   /usr/share/jenkins/ref/init.groovy.d/setup_security.groovy.override
+  COPY setup_security.groovy /usr/share/jenkins/ref/init.groovy.d/setup_security.groovy.override
   ```
 
   **Note**: The security script requires that the [git](https://plugins.jenkins.io/git), [github](https://plugins.jenkins.io/github), [github-oauth](https://plugins.jenkins.io/github-oauth), [matrix-auth](https://plugins.jenkins.io/matrix-auth), and [role-strategy](https://plugins.jenkins.io/role-strategy) plugins are installed
