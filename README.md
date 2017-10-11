@@ -1,7 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
--	[`latest`, `2.73.1-1` (*Dockerfile*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile)
--	[`debug-latest`, `debug-2.73.1-1` (*Dockerfile.debug*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile.debug)
+-	[`latest`, `2.73.2-1` (*Dockerfile*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile)
+-	[`debug-latest`, `debug-2.73.2-1` (*Dockerfile.debug*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile.debug)
 
 # Quick reference
 
@@ -65,7 +65,7 @@ The `jenkins-docker-master` images come in a couple of flavors, each designed fo
 and as such, many of the options prescribed there apply to this image as well.
 
 ## `jenkins-docker-master:<lts version>-<image version>`
-This is the de facto image. It is based of of `jenkins/jenkins<version>` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
+This is the de facto image. It is based off of `jenkins/jenkins<version>` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
 
 ## `jenkins-docker-master:debug-<lts version>-<image version>`
 This image is based off of the `jenkins-docker-master:<version>` image. The noticeable difference is in relation to increasing log verbosity for troubleshooting.
