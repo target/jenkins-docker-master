@@ -1,7 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
--	[`latest`, `2.73.1-1` (*Dockerfile*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile)
--	[`debug-latest`, `debug-2.73.1-1` (*Dockerfile.debug*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile.debug)
+-	[`latest`, `2.73.2-1` (*Dockerfile*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile)
+-	[`debug-latest`, `debug-2.73.2-1` (*Dockerfile.debug*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile.debug)
 
 # Quick reference
 
