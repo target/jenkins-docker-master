@@ -1,5 +1,5 @@
 ARG JENKINS_VER=2.73.2
-ARG JENKINS_REL=1
+ARG JENKINS_REL=2
 
 FROM target/jenkins-docker-master:${JENKINS_VER}-${JENKINS_REL}
 COPY files/debug_logs.groovy /usr/share/jenkins/ref/init.groovy.d/debug_logs.groovy
