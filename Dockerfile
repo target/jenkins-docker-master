@@ -1,9 +1,11 @@
 ARG JENKINS_VER=2.73.2
-ARG JENKINS_REL=1
 
 FROM jenkins/jenkins:${JENKINS_VER}
 
 USER root
+
+ARG JENKINS_VER=2.73.2
+ARG JENKINS_REL=2
 
 COPY files/jenkins_wrapper.sh /usr/local/bin/jenkins_wrapper.sh
 
