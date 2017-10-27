@@ -1,10 +1,10 @@
 # Contributing to reuse
 
-### Issues
+## Issues
 
 Feel free to submit bugs or feature requests as issues.
 
-### Pull Requests
+## Pull Requests
 
 These rules must be followed for any contributions to be merged into master.
 
