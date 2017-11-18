@@ -2,21 +2,20 @@ ARG JENKINS_VER=2.73.3
 
 FROM jenkins/jenkins:${JENKINS_VER}
 
-USER root
+ARG JENKINS_VER
+ARG RELEASE=2
 
-ARG JENKINS_VER=2.73.3
-ARG JENKINS_REL=1
+USER root
 
 COPY files/jenkins_wrapper.sh /usr/local/bin/jenkins_wrapper.sh
 
+# create version files to ensure Jenkins does not prompt for setup
+# allow slave to master control - https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control
+# create file for plugin versioning
 RUN echo -n ${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state && \
 echo -n ${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion && \
-# allow slave to master control - https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control
 mkdir -p /usr/share/jenkins/ref/secrets/ && echo false > /usr/share/jenkins/ref/secrets/slave-to-master-security-kill-switch && \
-# Create file for plugin versioning
-echo ${JENKINS_VER}-${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.docker.image.version && \
-sed -i -e "s/##JENKINS_VER##/${JENKINS_VER}/g; s/##JENKINS_REL##/${JENKINS_REL}/g" /usr/local/bin/jenkins_wrapper.sh && \
-chmod 0755 /usr/local/bin/jenkins_wrapper.sh
+echo ${JENKINS_VER}-${RELEASE} > /usr/share/jenkins/ref/jenkins.docker.image.version
 
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins_wrapper.sh"]
 

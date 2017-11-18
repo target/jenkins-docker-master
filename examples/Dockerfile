@@ -1,7 +1,7 @@
 ARG JENKINS_VER=2.73.3
-ARG JENKINS_REL=1
+ARG RELEASE=2
 
-FROM target/jenkins-docker-master:${JENKINS_VER}-${JENKINS_REL}
+FROM target/jenkins-docker-master:${JENKINS_VER}-${RELEASE}
 USER root
 
 RUN curl -sL https://github.com/logzio/jmx2graphite/releases/download/v1.1.0/jmx2graphite-1.1.0-javaagent.jar > /usr/share/jenkins/jmx2graphite.jar && \
