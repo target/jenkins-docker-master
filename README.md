@@ -1,29 +1,17 @@
 # jenkins-docker-master
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
+[![release](https://img.shields.io/github/release/target/jenkins-docker-master.svg)](https://github.com/target/jenkins-docker-master/releases/latest)
+[![docker](https://img.shields.io/docker/automated/target/jenkins-docker-master.svg)](https://hub.docker.com/r/target/jenkins-docker-master)
 
-## Supported tags and respective `Dockerfile` links
-
-- [`latest`, `2.73.3-1` (*Dockerfile*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile)
-- [`debug-latest`, `debug-2.73.3-1` (*Dockerfile.debug*)](https://github.com/target/jenkins-docker-master/blob/master/Dockerfile.debug)
-
-## Quick reference
-
-- **Where to get help**:
-  [The Jenkins users google group](https://groups.google.com/forum/?nomobile=true#!forum/jenkinsci-users) or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=jenkins)
-
-- **Where to file issues**:
-  [https://github.com/target/jenkins-docker-master/issues](https://github.com/target/jenkins-docker-master/issues)
-
-- **Maintained by**:
-  [The JAYS Maintainers](https://github.com/target/jenkins-docker-master/blob/master/MAINTAINERS)
+A Jenkins docker container. `jenkins-docker-master` was created to allow companies to run Jenkins at scale.
 
 ## How to use this image
 
 ### Modify the image to company specific settings
 
   ```dockerfile
-  FROM target/jenkins-docker-master:latest
+  FROM target/jenkins-docker-master:2.73.3-2
   COPY scripts-directory /usr/share/jenkins/ref/init.groovy.d/script.groovy
   ```
 
@@ -35,7 +23,7 @@
   $ docker service create --name <name> --mount type=bind,src=/path/to/source,dst=/var/jenkins_home
   -e JENKINS_URL=https://<jenkins url> -e JENKINS_SLAVE_AGENT_PORT=<jnlp port>
   --network <network name> --publish <jnlp port> --restart-condition on-failure
-  target/jenkins-docker-master:<version>
+  target/jenkins-docker-master:2.73.3-2
   ```
 
   Example [gelvedere](https://github.com/target/gelvedere) command:
@@ -78,10 +66,10 @@ The following environment variables can be used to set up Jenkins:
 The `jenkins-docker-master` images come in a couple of flavors, each designed for a specific use case. All of the images extend the official [Jenkins LTS images](https://hub.docker.com/r/jenkins/jenkins)
 and as such, many of the options prescribed there apply to this image as well.
 
-### `jenkins-docker-master:<lts version>-<image version>`
+### `jenkins-docker-master:2.73.3-2`
 
-This is the de facto image. It is based off of `jenkins/jenkins<version>` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
+This is the de facto image. It is based off of `jenkins/jenkins:2.73.3` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
 
-### `jenkins-docker-master:debug-<lts version>-<image version>`
+### `jenkins-docker-master:debug-2.73.3-2`
 
-This image is based off of the `jenkins-docker-master:<version>` image. The noticeable difference is in relation to increasing log verbosity for troubleshooting.
+This image is based off of the `jenkins-docker-master:2.73.3-2` image. The noticeable difference is in relation to increasing log verbosity for troubleshooting.

@@ -4,9 +4,9 @@
   "issues": "https://github.com/target/jenkins-docker-master/issues",
   "people": [
     {
-      "github": "JordanSussman",
-      "email": "jordan.sussman@target.com",
-      "name": "Jordan Sussman"
+      "github": "delta592",
+      "email": "Dax.Johnson@target.com",
+      "name": "Dax Johnson"
     },
     {
       "github": "slushpupie",
@@ -19,9 +19,9 @@
       "name": "Sean Quinn"
     },
     {
-      "github": "delta592",
-      "email": "Dax.Johnson@target.com",
-      "name": "Dax Johnson"
+      "github": "JordanSussman",
+      "email": "jordan.sussman@target.com",
+      "name": "Jordan Sussman"
     }
   ]
 }
