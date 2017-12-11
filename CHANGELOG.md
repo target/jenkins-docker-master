@@ -1,5 +1,9 @@
 # changelog
 
+## 2.89.1
+
+* Bump LTS
+
 ## 2.73.3-2
 
 * Order `MAINTAINERS` alphabetically
