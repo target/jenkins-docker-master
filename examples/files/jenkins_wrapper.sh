@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JENKINS_VER=2.89.1
+JENKINS_VER=2.89.2
 RELEASE=1
 
 # This enables you to directly tie versions of plugins to a specific version of Jenkins

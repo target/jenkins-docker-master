@@ -1,4 +1,4 @@
-ARG JENKINS_VER=2.89.1
+ARG JENKINS_VER=2.89.2
 
 FROM jenkins/jenkins:${JENKINS_VER}
 

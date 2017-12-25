@@ -1,6 +1,11 @@
 # changelog
 
-## 2.89.1
+## 2.89.2-1
+
+* Bump LTS for security fixes
+* Fix typos
+
+## 2.89.1-1
 
 * Bump LTS
 
