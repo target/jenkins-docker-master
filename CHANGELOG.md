@@ -1,5 +1,10 @@
 # changelog
 
+## 2.89.2-2
+
+* Enabling CSRF Protection in the setup_security.groovy script.
+* Limiting the agent protocols to JNLP4 and CLI2 in the setup_security.groovy script per security and deprecation warnings.
+
 ## 2.89.2-1
 
 * Bump LTS for security fixes

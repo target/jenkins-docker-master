@@ -36,7 +36,7 @@ instance.setQuietPeriod(5)
 int port = env['JENKINS_SLAVE_AGENT_PORT'].toInteger()
 instance.setSlaveAgentPort(port)
 
-// Set agent protocol list to JNLP4 and CLI2 by default. - http://javadoc.jenkins.io/jenkins/model/Jenkins.html#getAgentProtocols--
+// Set agent protocol list to JNLP4 and CLI2 by default - http://javadoc.jenkins.io/jenkins/model/Jenkins.html#getAgentProtocols--
 Set<String> agentProtocolsList = ['JNLP4-connect', 'Ping', 'CLI2-connect']
 if(!instance.getAgentProtocols().equals(agentProtocolsList)) {
     instance.setAgentProtocols(agentProtocolsList)
@@ -45,6 +45,10 @@ if(!instance.getAgentProtocols().equals(agentProtocolsList)) {
 } else {
     logger.info("Nothing changed.  Agent Protocols already configured: ${instance.getAgentProtocols()}")
 }
+
+// Enable CSRF Protection by default - http://javadoc.jenkins-ci.org/hudson/security/csrf/DefaultCrumbIssuer.html
+instance.setCrumbIssuer(new DefaultCrumbIssuer(true))
+instance.save()
 
 // Set URL location - http://javadoc.jenkins-ci.org/jenkins/model/JenkinsLocationConfiguration.html#setUrl-java.lang.String-
 loc = JenkinsLocationConfiguration.get()
