@@ -36,6 +36,16 @@ instance.setQuietPeriod(5)
 int port = env['JENKINS_SLAVE_AGENT_PORT'].toInteger()
 instance.setSlaveAgentPort(port)
 
+// Set agent protocol list to JNLP4 and CLI2 by default. - http://javadoc.jenkins.io/jenkins/model/Jenkins.html#getAgentProtocols--
+Set<String> agentProtocolsList = ['JNLP4-connect', 'Ping', 'CLI2-connect']
+if(!instance.getAgentProtocols().equals(agentProtocolsList)) {
+    instance.setAgentProtocols(agentProtocolsList)
+    logger.info("Agent Protocols have changed.  Setting: ${agentProtocolsList}")
+    instance.save()
+} else {
+    logger.info("Nothing changed.  Agent Protocols already configured: ${instance.getAgentProtocols()}")
+}
+
 // Set URL location - http://javadoc.jenkins-ci.org/jenkins/model/JenkinsLocationConfiguration.html#setUrl-java.lang.String-
 loc = JenkinsLocationConfiguration.get()
 loc.setUrl(env['JENKINS_URL'])
