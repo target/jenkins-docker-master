@@ -2,6 +2,7 @@ import jenkins.model.*
 import hudson.security.*
 import org.jenkinsci.plugins.*
 import org.jenkinsci.plugins.GithubSecurityRealm
+
 import java.util.*
 import com.michelin.cio.hudson.plugins.rolestrategy.*
 import java.lang.reflect.*
@@ -11,6 +12,7 @@ import java.util.logging.ConsoleHandler
 import java.util.logging.LogManager
 
 import hudson.model.Hudson.CloudList;
+import hudson.security.csrf.DefaultCrumbIssuer;
 import hudson.slaves.Cloud;
 
 import com.cloudbees.plugins.credentials.CredentialsScope
@@ -35,6 +37,29 @@ instance.setQuietPeriod(5)
 // Set slave agent port - http://javadoc.jenkins-ci.org/jenkins/model/Jenkins.html#setSlaveAgentPort-int-
 int port = env['JENKINS_SLAVE_AGENT_PORT'].toInteger()
 instance.setSlaveAgentPort(port)
+
+// Set agent protocol list to JNLP4 and CLI2 by default - http://javadoc.jenkins.io/jenkins/model/Jenkins.html#getAgentProtocols--
+Set<String> agentProtocolsList = ['JNLP4-connect', 'Ping', 'CLI2-connect']
+if(!instance.getAgentProtocols().equals(agentProtocolsList)) {
+    instance.setAgentProtocols(agentProtocolsList)
+    logger.info("Agent Protocols have changed.  Setting: ${agentProtocolsList}")
+    instance.save()
+} else {
+    logger.info("Nothing changed.  Agent Protocols already configured: ${instance.getAgentProtocols()}")
+}
+
+// Disable UI Warnings about Deprecated Agent Protocols/ CLI configurations set above.
+logger.info("Disabling UI warnings about deprecated agent protocols.")
+def agentprotocol = instance.getAdministrativeMonitor("jenkins.slaves.DeprecatedAgentProtocolMonitor")
+agentprotocol.disable(true)
+
+logger.info("Disabling UI warnings about CLI remoting being enabled.")
+def cliwarn = instance.getAdministrativeMonitor("jenkins.CLI")
+cliwarn.disable(true)
+
+// Enable CSRF Protection by default - http://javadoc.jenkins-ci.org/hudson/security/csrf/DefaultCrumbIssuer.html
+instance.setCrumbIssuer(new DefaultCrumbIssuer(true))
+instance.save()
 
 // Set URL location - http://javadoc.jenkins-ci.org/jenkins/model/JenkinsLocationConfiguration.html#setUrl-java.lang.String-
 loc = JenkinsLocationConfiguration.get()

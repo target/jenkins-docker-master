@@ -2,7 +2,7 @@
 # This is a simple script to update the version of jenkins being used
 
 JENKINS_VER=2.89.2
-RELEASE=1
+RELEASE=2
 
 for fname in Dockerfile Dockerfile.debug files/jenkins_wrapper.sh examples/Dockerfile examples/files/jenkins_wrapper.sh
 do
