@@ -48,9 +48,14 @@ if(!instance.getAgentProtocols().equals(agentProtocolsList)) {
     logger.info("Nothing changed.  Agent Protocols already configured: ${instance.getAgentProtocols()}")
 }
 
-// Disable UI Warnings about Deprecated Agent Protocols set above.
+// Disable UI Warnings about Deprecated Agent Protocols/ CLI configurations set above.
+logger.info("Disabling UI warnings about deprecated agent protocols.")
 def agentprotocol = instance.getAdministrativeMonitor("jenkins.slaves.DeprecatedAgentProtocolMonitor")
 agentprotocol.disable(true)
+
+logger.info("Disabling UI warnings about CLI remoting being enabled.")
+def cliwarn = instance.getAdministrativeMonitor("jenkins.CLI")
+cliwarn.disable(true)
 
 // Enable CSRF Protection by default - http://javadoc.jenkins-ci.org/hudson/security/csrf/DefaultCrumbIssuer.html
 instance.setCrumbIssuer(new DefaultCrumbIssuer(true))
