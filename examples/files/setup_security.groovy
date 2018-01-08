@@ -2,6 +2,7 @@ import jenkins.model.*
 import hudson.security.*
 import org.jenkinsci.plugins.*
 import org.jenkinsci.plugins.GithubSecurityRealm
+
 import java.util.*
 import com.michelin.cio.hudson.plugins.rolestrategy.*
 import java.lang.reflect.*
@@ -46,6 +47,10 @@ if(!instance.getAgentProtocols().equals(agentProtocolsList)) {
 } else {
     logger.info("Nothing changed.  Agent Protocols already configured: ${instance.getAgentProtocols()}")
 }
+
+// Disable UI Warnings about Deprecated Agent Protocols set above.
+def agentprotocol = instance.getAdministrativeMonitor("jenkins.slaves.DeprecatedAgentProtocolMonitor")
+agentprotocol.disable(true)
 
 // Enable CSRF Protection by default - http://javadoc.jenkins-ci.org/hudson/security/csrf/DefaultCrumbIssuer.html
 instance.setCrumbIssuer(new DefaultCrumbIssuer(true))
