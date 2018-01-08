@@ -11,6 +11,7 @@ import java.util.logging.ConsoleHandler
 import java.util.logging.LogManager
 
 import hudson.model.Hudson.CloudList;
+import hudson.security.csrf.DefaultCrumbIssuer;
 import hudson.slaves.Cloud;
 
 import com.cloudbees.plugins.credentials.CredentialsScope
