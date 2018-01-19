@@ -1,5 +1,10 @@
 # changelog
 
+## 2.89.3-1
+
+* Bump LTS
+* Fix Dockerfile to use correct path for [tini](https://github.com/krallin/tini)
+
 ## 2.89.2-2
 
 * Enabling CSRF Protection in the setup_security.groovy script.
