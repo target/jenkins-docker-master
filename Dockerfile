@@ -1,9 +1,9 @@
-ARG JENKINS_VER=2.89.2
+ARG JENKINS_VER=2.89.3
 
 FROM jenkins/jenkins:${JENKINS_VER}
 
 ARG JENKINS_VER
-ARG RELEASE=2
+ARG RELEASE=1
 
 USER root
 
@@ -17,7 +17,7 @@ echo -n ${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.install.InstallUtil.last
 mkdir -p /usr/share/jenkins/ref/secrets/ && echo false > /usr/share/jenkins/ref/secrets/slave-to-master-security-kill-switch && \
 echo ${JENKINS_VER}-${RELEASE} > /usr/share/jenkins/ref/jenkins.docker.image.version
 
-ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins_wrapper.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins_wrapper.sh"]
 
 USER jenkins
 

@@ -1,5 +1,5 @@
-ARG JENKINS_VER=2.89.2
-ARG RELEASE=2
+ARG JENKINS_VER=2.89.3
+ARG RELEASE=1
 
 FROM target/jenkins-docker-master:${JENKINS_VER}-${RELEASE}
 COPY files/debug_logs.groovy /usr/share/jenkins/ref/init.groovy.d/debug_logs.groovy
