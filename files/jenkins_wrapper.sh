@@ -1,7 +1,7 @@
 #!/bin/bash
 
 JENKINS_VER=2.89.3
-RELEASE=1
+RELEASE=2
 
 # This enables you to directly tie versions of plugins to a specific version of Jenkins
 # The base dockerfile installs plugins, but it won't override plugins that are pinned,

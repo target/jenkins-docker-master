@@ -1,5 +1,5 @@
 ARG JENKINS_VER=2.89.3
-ARG RELEASE=1
+ARG RELEASE=2
 
 FROM target/jenkins-docker-master:${JENKINS_VER}-${RELEASE}
 USER root
