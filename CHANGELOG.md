@@ -1,5 +1,9 @@
 # changelog
 
+## 2.89.4-1
+
+* Bump LTS
+
 ## 2.89.3-1
 
 * Bump LTS
