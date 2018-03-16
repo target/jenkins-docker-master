@@ -26,7 +26,7 @@ import com.cloudbees.plugins.credentials.domains.Domain
 def env = System.getenv()
 def logger = LogManager.getLogManager().getLogger("hudson.WebAppMain")
 
-def instance = Jenkins.getInstance()
+def instance = Jenkins.get()
 
 // Set executors to 0
 instance.setNumExecutors(0)
