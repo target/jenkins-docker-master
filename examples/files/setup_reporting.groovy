@@ -13,7 +13,7 @@ import jenkins.metrics.impl.graphite.GraphiteServer
 def env = System.getenv()
 def logger = LogManager.getLogManager().getLogger("hudson.WebAppMain")
 
-def instance = Jenkins.getInstance()
+def instance = Jenkins.get()
 
 logger.info("Setting up Graphite Metrics Reporting")
 
