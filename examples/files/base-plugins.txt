@@ -26,7 +26,6 @@ script-security
 ssh-credentials
 ssh-slaves
 subversion
-urltrigger
 workflow-api
 workflow-aggregator
 workflow-cps
