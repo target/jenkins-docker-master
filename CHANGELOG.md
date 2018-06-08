@@ -1,5 +1,8 @@
 # changelog
 
+## 2.121.1-1
+* Bump LTS
+
 ## 2.107.3-1
 
 * Bump LTS
