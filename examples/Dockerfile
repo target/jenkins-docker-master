@@ -1,4 +1,4 @@
-ARG JENKINS_VER=2.107.3
+ARG JENKINS_VER=2.121.1
 ARG RELEASE=2
 
 FROM target/jenkins-docker-master:${JENKINS_VER}-${RELEASE}
