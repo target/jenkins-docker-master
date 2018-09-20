@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t jenkins-docker-master .
+  - docker build -t jenkins-docker-master:debug -f Dockerfile.debug .
