@@ -1,4 +1,4 @@
-ARG JENKINS_VER=2.138.1
+ARG JENKINS_VER=2.150.1
 
 FROM jenkins/jenkins:${JENKINS_VER}
 
@@ -13,9 +13,9 @@ COPY files/jenkins_wrapper.sh /usr/local/bin/jenkins_wrapper.sh
 # allow slave to master control - https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control
 # create file for plugin versioning
 RUN echo -n ${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state && \
-echo -n ${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion && \
-mkdir -p /usr/share/jenkins/ref/secrets/ && echo false > /usr/share/jenkins/ref/secrets/slave-to-master-security-kill-switch && \
-echo ${JENKINS_VER}-${RELEASE} > /usr/share/jenkins/ref/jenkins.docker.image.version
+    echo -n ${JENKINS_VER} > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion && \
+    mkdir -p /usr/share/jenkins/ref/secrets/ && echo false > /usr/share/jenkins/ref/secrets/slave-to-master-security-kill-switch && \
+    echo ${JENKINS_VER}-${RELEASE} > /usr/share/jenkins/ref/jenkins.docker.image.version
 
 ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins_wrapper.sh"]
 
