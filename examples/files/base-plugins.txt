@@ -1,4 +1,5 @@
 artifactory
+authorize-project
 build-token-root
 cloudbees-folder
 copyartifact
