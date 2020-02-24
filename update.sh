@@ -1,7 +1,7 @@
 #!/bin/bash
 # This is a simple script to update the version of jenkins being used
 
-JENKINS_VER=2.190.1
+JENKINS_VER=2.204.2
 RELEASE=1
 
 ### DO NOT MODIFY ANY LINES BELOW ###
