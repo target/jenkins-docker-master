@@ -64,10 +64,10 @@ The following environment variables can be used to set up Jenkins:
 The `jenkins-docker-master` images come in a couple of flavors, each designed for a specific use case. All of the images extend the official [Jenkins LTS images](https://hub.docker.com/r/jenkins/jenkins)
 and as such, many of the options prescribed there apply to this image as well.
 
-### `jenkins-docker-master:2.204.2-1`
+### `jenkins-docker-master:2.235.1-1`
 
-This is the de facto image. It is based off of `jenkins/jenkins:2.204.2` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
+This is the de facto image. It is based off of `jenkins/jenkins:2.235.1` and includes a few modifications. It was created with the intention to be extended by using groovy scripts to setup ACLs using various plugins and as such, we have provided example groovy scripts [here](https://github.com/target/jenkins-docker-master/blob/master/examples).
 
-### `jenkins-docker-master:debug-2.204.2-1`
+### `jenkins-docker-master:debug-2.235.1-1`
 
-This image is based off of the `jenkins-docker-master:2.204.2-1` image. The noticeable difference is in relation to increasing log verbosity for troubleshooting.
+This image is based off of the `jenkins-docker-master:2.235.1-1` image. The noticeable difference is in relation to increasing log verbosity for troubleshooting.
