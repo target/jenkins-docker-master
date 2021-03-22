@@ -41,7 +41,7 @@ The following is a example of using the security script:
 | JENKINS_ACL_MEMBERS_admin         | A GitHub Org*Team to be admins of this instance | `target*Admins` |
 | JENKINS_ACL_MEMBERS_developer     | A GitHub Org*Team to be developers on this instance (optional) |  `jenkins*Contributors` |
 | ADMIN_SSH_PUBKEY                  | An ssh public key for the admin team to manage this instance |  `ssh-rsa AAAAB3N....9CUz` |
-| JENKINS_URL                       | Specify the public URL used to access this instance | `https://accoutning.jenkins.company.com/` |
+| JENKINS_URL                       | Specify the public URL used to access this instance | `https://accounting.jenkins.company.com/` |
 | JENKINS_ADMIN_EMAIL               | Specify the email address associated with the owners of this instance | `owners@company.com` |
 | GHE_ADMIN                         | The default GitHub Org*Team to be admins of this instance | `Jenkins*Admins`
 
