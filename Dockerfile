@@ -8,6 +8,9 @@ ARG RELEASE=1
 USER root
 
 COPY files/jenkins_wrapper.sh /usr/local/bin/jenkins_wrapper.sh
+COPY files/jenkins.yaml  /usr/local/bin/jenkins.yaml
+
+ENV CASC_JENKINS_CONFIG=/usr/local/bin/jenkins.yaml
 
 # create version files to ensure Jenkins does not prompt for setup
 # allow slave to master control - https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control

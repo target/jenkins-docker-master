@@ -1,0 +1,91 @@
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+        - assignments:
+          - "Jenkins*Admins"
+          - ${GHE_ADMIN}
+          - ${JENKINS_ACL_MEMBERS_admin}
+          name: "admin"
+          pattern: ".*"
+          permissions:
+          - "Overall/Administer"
+        - assignments:
+          - "anonymous"
+          name: "anonymous"
+          pattern: ".*"
+          permissions:
+          - "Job/Discover"
+        - assignments:
+          - "authenticated"
+          name: "authenticated"
+          pattern: ".*"
+          permissions:
+          - "Overall/Read"
+          - "Job/Discover"
+          - "Job/Read"
+          - "Job/Workspace"
+          - "View/Read"
+        - assignments: 
+          - ${JENKINS_ACL_MEMBERS_developer}
+          name: "developer"
+          pattern: ".*"
+          permissions:
+          - "Job/Move"
+          - "Job/Build"
+          - "Job/Create"
+          - "View/Create"
+          - "Job/Discover"
+          - "Job/Read"
+          - "Run/Delete"
+          - "Job/Cancel"
+          - "Overall/Read"
+          - "Run/Update"
+          - "Job/Delete"
+          - "View/Delete"
+          - "Job/Configure"
+          - "Job/Workspace"
+          - "View/Read"
+          - "View/Configure"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "jenkins.slaves.DeprecatedAgentProtocolMonitor"
+  - "jenkins.CLI"
+  labelAtoms:
+  - name: "chef"
+  - name: "linux"
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 0
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    github:
+      clientID: ${GHE_KEY}
+      clientSecret: ${GHE_SECRET}
+      githubApiUri: ${GHE_API_URL}
+      githubWebUri: ${GHE_WEB_URL}
+      oauthScopes: "read:org,user:email"
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
