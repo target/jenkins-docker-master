@@ -1,3 +1,8 @@
+# Deprecation Warning
+
+As of May 2021, this project has been deprecated and is now archived in favor of using [vela](https://github.com/go-vela)
+
+
 # jenkins-docker-master
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
